@@ -1,0 +1,39 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src = "./task4_findMinValueInArray.js"></script>
+		<script>
+
+			function findMinValueRowIn(matrix) {
+				var minValue = findMinValue(matrix[0]);
+				var minRowIndex = 0;
+				for (var i = 1; i < matrix.length; i++) {
+					var currentMin = findMinValue(matrix[i])
+					if (currentMin < minValue) {
+						minValue = currentMin;
+						minRowIndex = i;
+					}
+				}
+				return matrix[minRowIndex];
+			}
+			var array = [[1,2,33,4,1,3,7],
+						[-2,2,3,4,101,3,6],
+						[2,2,9,4,1,53,67],
+						];
+			console.log(findMinValueRowIn(array));
+			//returns the row that contains the minimum value found (not minimum sum of the row);
+		</script>
+			
+		
+	</head>
+	<body>
+		<p>напишете функция, която приема двумерен масив от 
+числа като параметър и намира реда му с най-малка 
+стойност;</p>
+
+	</body>
+	
+
+
+</html>

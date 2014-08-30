@@ -1,0 +1,32 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+		function resetToZero(number) {
+			if (isNaN(number)) {
+				console.log("invalid number");
+				return false;
+			}
+			if (number == 0) {
+				return number;
+			}
+			number--;
+			return resetToZero(number);
+		}
+		var number = 6;
+		var numberReset = resetToZero(number);
+		console.log(numberReset);
+		</script>
+
+	</head>
+	<body>
+		<p>Напишете рекурсивна функция, която нулира число,
+т.е. на всяко изпълнение на рекурсията числото трябва
+да намалява с 1.</p>
+
+	</body>
+	
+
+
+</html>

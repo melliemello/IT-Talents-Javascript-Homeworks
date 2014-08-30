@@ -1,0 +1,31 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src = "./task1_sum2numbers.js"></script>
+		<script>
+
+			function sumElementsOfArray(array) {
+				var sum = 0;
+				for (var i = 0; i <= array.length - 1; i++) {
+					sum = sumTwoNumbers(sum, array[i]);
+				}
+				return sum;
+			}
+			var array = [1,2,3,4,1,3];
+			console.log(sumElementsOfArray(array));
+		</script>
+			
+		
+	</head>
+	<body>
+		<p> напишете фунцкция , която приема масив от числа 
+като параметър и връща сбора им, за да събирате 
+числата използвайте функцията , която сте написали 
+за 1-ва задача</p>
+
+	</body>
+	
+
+
+</html>

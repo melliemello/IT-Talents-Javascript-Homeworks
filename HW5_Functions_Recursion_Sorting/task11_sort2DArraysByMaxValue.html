@@ -1,0 +1,49 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+
+
+		function minValueIn(array) {
+			return Math.min.apply(null, array);
+		}
+
+		function selectionSortByMaxValueInRow(array2D) {
+			for (var i = 0; i < array2D.length-1; i++) {
+				var minValue = minValueIn(array2D[i]);
+				var minIndex = i;
+				for (var j = i + 1; j < array2D.length; j++) {
+					var currentMin = minValueIn(array2D[j]);
+					if ( currentMin < minValue) {
+						minValue = currentMin;
+						minIndex = j;
+					}
+				}
+			var temp = array2D[i];
+			array2D[i] = array2D[minIndex];
+			array2D[minIndex] = temp;
+			}
+			return array2D;
+		}
+
+		var array = [[15,16,17,2],
+					[4,5,-6],
+					[7,8,1]
+					];
+
+		console.log(selectionSortByMaxValueInRow(array));
+
+		</script>
+
+	</head>
+	<body>
+		<p>Сортирайте 2 мерен масив по най- голямото число във 
+всеки един негов ред, използвайте селекшън сорт;;
+</p>
+
+	</body>
+	
+
+
+</html>

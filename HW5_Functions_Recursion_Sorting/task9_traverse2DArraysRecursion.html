@@ -1,0 +1,36 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+		function traverse(array,index) {
+			if (index == array.length) {
+				return;
+			}
+			if (array[index] instanceof Array) {
+				traverse(array[index],0);
+			}else {
+				console.log(array[index]);
+			}
+			index++;
+			traverse(array,index);
+		}
+
+		var array = [[1,2,3,[31,32,33,[334,335,336]]],
+					[4,5,6],
+					[7,8,9]
+		];
+
+		console.log(traverse(array, 0));
+		</script>
+
+	</head>
+	<body>
+		<p>Обходете двумерен масив без да използвате цикли, 
+използвайте рекурсия;</p>
+
+	</body>
+	
+
+
+</html>

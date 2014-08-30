@@ -1,0 +1,51 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+
+
+		function sumElementsOfArray(array) {
+			var sum = 0;
+			for (var i = 0; i < array.length; i++) {
+				sum += array[i];
+			}
+			return sum;
+		}
+
+		function switchPlacesIn(array,fromIndex) {
+			var temp = array[fromIndex];
+			array[fromIndex] = array[fromIndex+1];
+			array[fromIndex+1] = temp;
+			return array;
+		}
+
+		function bubbleSortByRowSum(array2D) {
+			for (var i = 0; i < array2D.length-1; i++) {
+				if (sumElementsOfArray(array2D[i]) > sumElementsOfArray(array2D[i+1])) {
+					array2D = switchPlacesIn(array2D, i);
+				}
+			}
+			return array2D;
+		}
+
+		var array = [[15,16,17],
+					[4,5,6],
+					[7,8,9]
+					];
+
+		console.log(bubbleSortByRowSum(array));
+
+		</script>
+
+	</head>
+	<body>
+		<p>Сортирайте 2 мерен масив от числа по сумата на 
+редовете му, използвайте бъбъл сорт;
+</p>
+
+	</body>
+	
+
+
+</html>

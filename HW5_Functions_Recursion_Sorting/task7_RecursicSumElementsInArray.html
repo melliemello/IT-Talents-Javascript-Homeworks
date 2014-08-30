@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+		function sumElementsIn (array, startIndex, sum) {
+			if (startIndex == array.length) {
+				return sum;
+			}
+			sum += array[startIndex];
+			startIndex++;
+			return sumElementsIn(array, startIndex, sum);
+		}
+
+		var array = [1,2,3];
+		var sum = 0;
+		var result = sumElementsIn(array,0, sum);
+		console.log(result);
+		</script>
+
+	</head>
+	<body>
+		<p>Напишете рекурсивна функция , която да намира
+сумата на елементите на масив от числа.</p>
+
+	</body>
+	
+
+
+</html>

@@ -1,0 +1,49 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script>
+		function checkEqualityOf(array1, array2,index,isDifferent) {
+
+			if (array1[index] instanceof Array && array2[index] instanceof Array) {
+				var isDifferent = checkEqualityOf(array1[index], array2[index],0,isDifferent);
+			}
+			if (index == array1.length || isDifferent) {
+				return isDifferent;
+			}
+			if (array1.length != array2.length || !(array1[index] instanceof Array) && array1[index] != array2[index]) {
+				isDifferent = true;
+				return isDifferent;
+			}else{
+				index++;
+				return checkEqualityOf(array1, array2,index,isDifferent)
+			}
+			index++;
+			return checkEqualityOf(array1, array2,index,isDifferent);
+		}
+
+		var array1 = [[1,2,3],
+					[1,2,3],
+					[2,3,4]
+		];
+
+		var array2 = [[1,2,3],
+					[1,2,3],
+					[2,3,4]
+		];
+
+		var isDifferent = false;
+
+console.log(checkEqualityOf(array1, array2,0, isDifferent));
+		</script>
+
+	</head>
+	<body>
+		<p>Напишете рекурсивна функция , която да намира
+сумата на елементите на масив от числа.</p>
+
+	</body>
+	
+
+
+</html>

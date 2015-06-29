@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Task 7</title>
+		<script>
+			var array = [];
+			var n = 6;
+			var m = 5;
+
+			for (var i = 0; i < n; i++) {
+				if (!array[i]) {
+					array[i] = [];
+				}
+				for (var j = 0; j < m; j++) {
+					array[i][j] = Math.floor((Math.random() * 100));
+				}
+			}
+			
+			console.log("Before:");
+			console.log (array[4]);
+			console.log (array[5]);
+			console.log ("------");
+			
+			for (var i = 0; i < m; i++) {
+				var temp = array[0][i];
+				array[0][i] = array[1][i];
+				array[1][i]= temp;
+				//Using sum
+				array[2][i] = array[3][i] + (array[1][i] = array[3][i], 0);
+				//Using multiplication
+				array[4][i] = array[5][i] * array[4][i];
+				array[5][i] = array[4][i] / array[5][i];
+				array[4][i] = array[4][i] / array[5][i];
+			}
+			console.log("After:");
+			console.log (array[4]);
+			console.log (array[5]);
+		</script>
+	</head>
+<body>
+<p>Имате двумерен масив 6х5 от естествени числа от интервала 
+[1..100], чийто стойности са въведени предварително. 
+Да се състави програма , чрез която се разменят елементите на два 
+реда в масива по 3 различни начина.
+- в редове 1 и 2 чрез трета променлива;
+- в редове 3 и 4 чрез събиране;
+- в редове 5 и 6 чрез умножение.</p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Task 8</title>
+		<script>
+			var array = [];
+			var n = 6;
+			var m = 7;
+			var sum = 0;
+
+			for (var i = 0; i < n; i++) {
+				if (!array[i]) {
+					array[i] = [];
+				}
+				for (var j = 0; j < m; j++) {
+					array[i][j] = Math.floor((Math.random() * 100));
+				}
+			}
+			
+			for (var i = 0, j = m-1; i < n ; i++, j--) {
+				console.log(array[i][j]);
+				sum += array[i][j];
+			}
+
+			console.log(array);
+			console.log("The average sum is: " + sum / n);
+		</script>
+	</head>
+<body>
+<p>Имате предварително въведени стойности на елементи в 
+двумерен масив - естествени числа от интервала [0..100].
+Да се състави програма , чрез която се извеждат стойностите на 
+елементите от двумерния масив по неговия неосновен (горе-дясно, 
+долу-ляво) диагонал. 
+Да се изведе средната стойност на елементите в указания диагонал</p>
+</body>
+</html>

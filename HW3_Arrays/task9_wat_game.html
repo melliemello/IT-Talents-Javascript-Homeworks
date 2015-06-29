@@ -1,0 +1,166 @@
+<!Doctype html>
+<html>
+	<head>
+		<style>
+			label {
+				color:grey;
+				display:inline;
+				font-style:italic;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id = "player1">
+			<label for "card1">Player 1 Card: </label>
+			<div id = "card1"></div>
+			<label for "score1">Player 1 Score: </label>
+			<div id = "score1"></div>
+		</div>
+		<div id = "player2">
+			<label for "card2">Player 2 Card: </label>
+			<div id = "card2"></div>
+			<label for "score2">Player 2 Score: </label>
+			<div id = "score2"></div>
+		</div>
+		<button id = "nextHand">Play Next Hand</button>
+		<div id = "result"></div>
+
+	</body>
+		<script>
+			var players = [];
+			var cardValues = ["","","2","3","4","5","6","7","8","9","10","A","J","D","K"];
+			var cardColors = ["T","D","H","S"];
+
+			var Card = function(cardValue, color) {
+				this.value = cardValue;
+				this.color = color;
+				this.toString = function () {
+					var card = cardValues[this.value];
+					card += cardColors[this.color];
+					return card;
+				}
+			}
+
+			var Deck = function () {
+				this.all = [];
+				this.init = function () {
+					for (var i = 2; i < 15; i++) {
+						for (var j = 0; j <4; j++) {
+							var card = new Card(i,j);
+							this.all.push(card);
+						}
+					}
+				}
+				this.init();
+			}
+
+			var Player = function(cardsInHand) {
+				if (!cardsInHand instanceof Array) {
+					alert ("Error: cardsInHand in hand is not not a valid array");
+					return false;
+				}
+				this.cardsInHand = cardsInHand;
+				this.score = 0;
+				this.playCard = function() {
+					var playedCard = this.cardsInHand.shift();
+					return playedCard;
+				}
+			}
+
+			var Dealer = function(deckObject) {
+				if (!deckObject instanceof Deck || deckObject.all == undefined) {
+					alert ("Error: deck object is not valid");
+					return false;
+				}
+				var dealersDeck = deckObject;
+				var shuffle =  function () {
+					var currentIndex = dealersDeck.all.length -1;
+					while (currentIndex > 0) {
+						var randomIndex = Math.floor (Math.random() * currentIndex);
+						currentIndex--;
+						var temp = dealersDeck.all[currentIndex];
+						dealersDeck.all[currentIndex] = dealersDeck.all[randomIndex];
+						dealersDeck.all[randomIndex] = temp;
+					}
+					return dealersDeck.all;
+				}
+
+				var cut = function () {
+					var numberOfCards = Math.floor(Math.random()*50);
+					var part = dealersDeck.all.slice(0,numberOfCards);
+					dealersDeck.all.splice(0,numberOfCards);
+					dealersDeck.all.push.apply(dealersDeck.all, part);
+				}
+
+				this.dealToPlayers = function (numberOfPlayers, numberOfCards) {
+					shuffle();
+					cut();
+					for (var i = 0; i < numberOfPlayers; i++) {
+						var hand = dealersDeck.all.slice(0,numberOfCards);
+						players[i] = new Player(hand);
+						dealersDeck.all.splice(0,numberOfCards);
+					}
+				}
+
+				this.compareCards = function(numberOfPlayers) {
+					var maxCard;
+					var handWinner;
+					var handScore = 0;
+					for (var i = 0; i < numberOfPlayers; i++) {
+						var cardPlayed = players[i].playCard();
+						handScore += cardPlayed.value;
+						var handSelector = "card" + (i+1);
+						var scoreSelector = "score" + (i+1);
+						document.getElementById(handSelector).innerHTML = cardPlayed.toString();
+						document.getElementById(scoreSelector).innerHTML = players[i].score;
+						if (maxCard == undefined || cardPlayed.value > maxCard) {
+							maxCard = cardPlayed.value;
+							handWinner = players[i];
+						}
+						if (cardPlayed.value == maxCard) {
+							var chance = Math.floor(Math.random() * 100);
+							if (chance > 50) {
+								handWinner = players[i];
+								maxCard = cardPlayed.value;
+							}
+						}
+					}
+					handWinner.score += handScore;
+				}
+			}
+
+			var initGame = function () {
+				var result;
+				var maxScore;
+				var gameWinner;
+				var endGame =  function (numberOfPlayers) {
+					alert("The game is over");
+					for (var i = 0; i < numberOfPlayers; i++) {
+						if (maxScore == undefined || players[i].score > maxScore) {
+							maxScore = players[i].score;
+							gameWinner = i;
+						}
+					}
+					var diff = (Math.abs(players[0].score - players[1].score));
+					result = "The Winner is: Player" + gameWinner + "</br>" + 
+							"Winner's Score is: " + maxScore + "</br>"+ 
+							"The difference between the two scores is:" + diff;
+					document.getElementById("result").innerHTML = result;
+				}
+				this.init = function () {
+					var deck = new Deck();
+					var dealer = new Dealer(deck);
+					dealer.dealToPlayers(2,6);
+					document.getElementById("nextHand").onclick=function(){
+						players[0].cardsInHand.length == 0 ? endGame(2) : dealer.compareCards(2)
+					};
+				}
+				this.init();
+			}
+
+			var game = new initGame;
+		</script>
+
+
+</html>

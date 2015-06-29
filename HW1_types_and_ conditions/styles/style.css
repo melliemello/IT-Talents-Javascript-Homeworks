@@ -1,0 +1,116 @@
+body, h1, div, span, p, li,ul,dl, dt,dd,input{
+	margin:0;
+	padding:0;
+}
+
+
+.clearfix {
+	*zoom:1;
+}
+.clearfix:after {
+   content: " ";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+
+}
+
+body{
+	font-family:"Open Sans", sans-serif;
+}
+.wrapper{
+	margin:0 auto;
+	width:50%;
+	min-width:600px;
+	padding-top:25px;
+}
+
+.button{
+	float:right;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+	background: #428bca;
+	padding:10px 15px;
+	color:white;
+	font-size:1em;
+	font-weight:normal;
+	border:1px solid #1d5b90;
+	border-radius:4px;
+	margin-top:15px;
+}
+
+.button:hover{
+	background-color: #1d5b90;
+}
+
+header#page-header{
+	background:#f8f8f8;
+	padding-top:20px;
+	padding-bottom:20px;
+	text-align:center;
+}
+
+
+p {
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+h1{
+	color: #428bca;
+}
+
+h2{
+	font-weight:normal;
+	font-size:1.1em;
+}
+
+
+
+
+
+/*Form*/
+
+.basic-entry{
+	background:#eeeeee;
+	padding:15px;
+	border-radius: 15px;
+}
+.basic-entry  dt, .basic-entry dd{
+	margin-bottom:10px;
+	float:left;
+	font-style: italic;
+}
+
+.basic-entry dt{
+	width:30%;
+}
+
+.basic-entry dd{
+	width:50%;
+}
+
+.basic-entry dd *{
+	width:100%;
+	border-radius:5px;
+	border:1px solid #d6d5d5;
+	padding:5px;
+	color:grey;
+}
+
+.basic-entry dd input{
+	height: 30px;
+}
+
+footer#page-footer{
+	margin-top:80px;
+	background:WhiteSmoke;
+	min-height: 300px;
+	text-align:center;
+}
+
+footer#page-footer .button.large{
+	margin-top: 100px;
+}

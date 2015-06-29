@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="scripts/script.js"></script>
+	<style>
+		canvas {
+			position:absolute;
+			top:0;
+			left:0;
+
+		}
+
+
+		#stage {
+			background:black;
+		}
+		.wall {
+			background: grey;
+		}
+		#form {
+			float:right;
+			margin:20px;
+		}
+		#form * {
+			margin:15px;
+		}
+
+	</style>
+</head>
+<body>
+<h1>Click Start to play the game</h1>
+<div id="form">
+	<table>
+		<tr>
+			<td>Rows:</td>
+			<td><input type="number" name="rows" id="rows" required></td>
+		</tr>
+		<tr>
+			<td>Columns:</td>
+			<td><input type="number" name="cols" id="cols" required></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button id="start">Start</button></td>
+		</tr>
+	</table>
+	<hr>
+</div>
+</body>
+</html>

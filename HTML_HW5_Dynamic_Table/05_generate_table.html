@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+	<title>Generate table</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<style>
+		td{
+			width:20px;
+			height:10px;
+		}
+	</style>
+	<script>
+	window.onload = function(){
+		var button = document.getElementById("button");
+		var result = document.getElementById("result");
+		var changingColors = false;
+		button.onclick = function(){
+			var rows = parseInt(document.getElementById("rows").value);
+			var cols = parseInt(document.getElementById("cols").value);
+			var changeColors;
+			result.innerHTML = generateTable(rows, cols);
+			var cells = document.body.getElementsByTagName("td");
+			button.onclick = function(){
+				if(changingColors) {
+					changingColors = false;
+					clearInterval(changeColors);
+					button.value = "Blink";
+				} else {
+					changingColors = true;
+					changeColors = setInterval(function(){colorize(cells)},50);
+					button.value = "Stop Blinking";
+				}
+			}
+		}
+
+		function generateTable(rows, cols) {
+			var table = "<table id='colored'>";
+			for(var i=0; i < rows; i++){
+				table += "<tr>";
+				for(var j = 0; j < cols; j++) {
+					table += "<td>.</td>";
+				}
+				table += "</tr>";
+			}
+			table += "</table>";
+			button.value = "Colorize!!!";
+			return table;
+		}
+
+		function colorize(elements) {
+			for (var i = 0; i < elements.length; i++) {
+				var color = generateColor();
+				elements[i].style.background = color;
+			}
+		}
+
+		function generateColor() {
+			var red = Math.ceil(Math.random()*255);
+			var green = Math.ceil(Math.random()*255);
+			var blue = Math.ceil(Math.random()*255);
+			return "rgb(" + red + "," + green + "," + blue + ")";
+		}
+}
+
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Generate table</h1>
+	<p>with cells colored in random color.</p>
+</header>
+<form  class="wrapper" >
+	<dl class="basic-entry clearfix">
+		<dt><label for "value1">Table Rows:</label></dt>
+		<dd><input type ="text" name="value1" id= "rows" ></dd>
+		<dt><label for "value2">Table Cols:</label></dt>
+		<dd><input type ="text" name="value2" id= "cols" ></dd>
+	</dl>
+	<input type= "button" id="button" value ="Generate Table">
+</form>
+<div class="wrapper" id="result">
+</div>
+</body>
+</html>

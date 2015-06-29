@@ -1,0 +1,114 @@
+@import 'variables';
+
+.transition {
+	-webkit-transition: all 2s; /* For Safari 3.1 to 6.0 */
+    transition: all 2s;
+}
+
+.login-container{
+	position:relative;
+	width:90%;
+	margin:0 auto;
+	dt, dd,h1{
+		margin: 3px 20px;
+	}
+	h1 {
+		margin-top:-40px;
+		font-size:3em;
+	}
+}
+
+input{
+	padding:5px;
+	margin:5px auto;
+	border-radius:3px;
+	background:rgba(0,0,0,0.6);
+	color:white;
+	border:2px solid grey;
+}
+
+input:hover{
+	border:2px solid $main-color;
+	box-sizing:border-box;
+}
+
+.login-form{
+	width:40%;
+	margin-top:100px;
+	background: rgba(0,0,0,0.3);
+	border: 1px solid grey;
+	border-radius:10px;
+	text-align:center;
+}
+
+.login-image{
+	position:absolute;
+	top:-234px;
+	left:25%;
+}
+
+.login-button {
+	display:block;
+	width:50%;
+	padding:8px 15px;
+	margin:5px auto;
+	border-radius:10px;
+	color:white;
+	text-decoration:none;
+	-webkit-transition: transform 0.3s; /* For Safari 3.1 to 6.0 */
+    transition: transform 0.3s;
+    &.active {
+    	background-color: $main-color;
+    }
+
+}
+
+.login-button:hover{
+	-webkit-transform: scale(1.1) rotate(3deg);
+	transform: scale(1.1) rotate(3deg);
+}
+
+
+body.register {
+	background-image:  url("../images/form-bg-dark.png"),url('../images/background.png');
+	background-repeat:no-repeat,repeat;
+	background-position:75% 10px, 0 0;
+	background-size:750px, auto;
+	background-attachment:fixed, scroll;
+}
+
+.register-container {
+	margin:30px auto;
+	width:70%;
+	background:black url("../images/form-bg.png") no-repeat 75% 10px;
+	background-attachment:fixed;
+	background-size:750px;
+	border-radius:10px;
+	border:3px solid black;
+	opacity:0.8;
+	h1{
+		text-shadow: 2px 2px black;
+		border-radius:10px;
+		width:70%;
+	}
+}
+
+.register-form{
+	padding:20px 30px;
+	width:100%;
+	dt, dd{
+		display:block;
+		margin:0 auto;
+		opacity:1;
+	}
+	a.login-button {
+		float:right;
+		margin-right:70px;
+		padding-top:15px;
+		padding-bottom:15px;
+		font-size:1.3em;
+		text-align:center;
+		width:20%;
+
+	}
+}

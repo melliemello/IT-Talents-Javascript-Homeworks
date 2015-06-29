@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+	<title>Задача 10</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="../styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function validateAndAssignInput(elementID){
+			var input = parseInt(document.getElementById(elementID).value);
+			return input;
+		}
+		
+		function taskTrigger(){
+			var val1 = validateAndAssignInput("value1");
+			var result= true;
+			
+			if(isNaN(val1)){
+				var result = "You have entered invalid number. Please enter a valid number";
+				alert(result);
+				return;
+			}
+			
+			for(i = 2; i <= Math.sqrt(val1);  i++){
+				if(val1 % i == 0){
+					result = false;
+					break;
+				}				
+			}
+			result ? result = "Числото е просто" : result = "Числото не е просто";
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Задача 10</h1>
+	<p>Въведете число от клавиатурата и определете дали е просто. Просто число е това което се дели САМО на 1 и на себе си.	</p>
+</header>
+<form  class="wrapper" >
+	<dl class="basic-entry clearfix">
+		<dt><label for "value1">Стойност 1:</label></dt>
+		<dd><input type ="text" name="value1" id= "value1" ></dd>
+	</dl>
+
+	<input type= "button" class="button" onclick = " taskTrigger();" value ="Check!">
+</form>
+<div class="wrapper" id="result">
+	
+</div>
+</body>
+</html>

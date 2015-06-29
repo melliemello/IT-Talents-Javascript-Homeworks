@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+	<title>Task1 - Task4 </title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="../styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function validateAndAssignInput(elementID){
+			var input = parseInt(document.getElementById(elementID).value);
+			return input;
+		}
+		
+		function taskTrigger(){
+			var val1 = validateAndAssignInput("value1");
+			var result= "";
+
+			if(isNaN(val1)){
+				alert("Въвели сте некоректни стойности");
+				return false;
+			};
+
+			for(i = 3; i<= (val1*3); i+=3){
+				result += i + ", ";
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Задача 7</h1>
+	<p>Започвайки от 3, да се изведат на екрана първите n числа 
+които се делят на 3. Числата да са разделени със запетая.</p>
+</header>
+<form  class="wrapper clearfix" >
+	<dl class="basic-entry clearfix">
+		<dt><label for "value1">Стойност 1:<label></dt>
+		<dd><input type ="text" name="value1" id= "value1"></dd>
+	</dl>
+
+	<input type= "button" class="button" onclick = "taskTrigger();" value ="Check!">
+</form>
+<div class="wrapper" id="result">
+	
+</div>
+</body>
+</html>

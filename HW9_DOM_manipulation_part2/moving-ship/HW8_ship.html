@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="scripts/hw8_ship.js"></script>
+	<style>
+		#stage {
+			width:1000px;
+			height:600px;
+			overflow:hidden;
+			position:relative;
+		}
+		#stage div {
+			position:absolute;
+		}
+
+		.ship {
+			width:80px;
+			height:80px;
+		}
+
+		.bullet {
+			display:none;
+			width:1px;
+			height:10px;
+			background:red;
+			bottom:0;
+
+		}
+		.fired {
+			display:block;
+			animation: fire 2s linear;
+			-webkit-animation: fire 2s linear;
+		}
+
+		@keyframes fire{
+			from {
+				transform:translateY(0);
+				ms-transform:translateY(0);
+			}
+			to{
+				transform:translateY(-600px);
+				ms-transform:translateY(-600px);
+			}
+		}
+
+		@-webkit-keyframes fire{
+			from {
+				-webkit-transform:translateY(0);
+				
+			}
+			to{
+				-webkit-transform:translateY(-600px);
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div id="stage">
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bar At The End Of The Universe </title>
+
+	<style>
+		body, ul, li,div,p,dl,dd,dt, form, input,select, fieldset {
+			margin:0;
+			padding:0;
+		}
+		#reservation-form {
+			width:40%;
+			margin:0 auto;
+		}
+		dt, dd {
+			display:inline-block;
+			zoom:1;
+			*display:inline;
+			width:49%;
+			margin-top:10px;
+			margin-bottom:10px;
+			vertical-align:top;
+		}
+		dt {
+			text-align:right;
+		}
+		
+		fieldset {
+			border-right:0;
+			border-left:0;
+			border-bottom:0;
+			border-top:1px solid  grey;
+			min-width:380px;
+		}
+		
+		legend{
+			margin-bottom:35px;
+			margin-top:35px;
+			text-align:center;
+		}
+		dt.group, dd.group {
+			margin-top:2px;
+			margin-bottom:2px;
+		}
+		dt.group.first, dd.group.first {
+			margin-top:20px;
+		}
+			dt.group.last, dd.group.last {
+			margin-bottom:20px;
+		}
+	</style>	
+	<script type="text/javascript" src="script/modernizr.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+		if( !Modernizr.inputtypes.datetime || !Modernizr.inputtypes.number){
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = 'script/webshim/js-webshim/minified/polyfiller.js';
+			document.getElementsByTagName('head')[0].appendChild(script);
+		};
+		</script>
+		<script>
+			$.webshim.polyfill('forms');
+		</script>
+</head>
+
+<body>
+	<header>
+		<div id="logo" style="float:left; margin-right:10%;"> 
+			<img src="images/alien_logo.png" style="vertical-align:middle" alt="milliways logo"/>
+			<span class="slogan" style="vertical-align:middle; font-size:1.6em; font-weight:bold;">Milliways </span>
+		</div>
+
+		<nav id="main-menu" style="width:30%; margin-left:70%;">
+			<ul>
+				<li style="float:left; margin-right:20px;"><a href="page1.html">About Us</a></li>
+				<li style="float:left; margin-right:20px;"><a href="page2.html">Menu</a></li>
+				<li style="float:left; margin-right:20px;"><a href="page3.html">Gallery</a></li>
+				<li style="float:left; margin-right:20px;"><a href="page4.html">Book Now!</a></li>
+			</ul>
+		</nav>
+		<hr style="clear:both"/>
+	</header>
+	
+	<section>
+		<form id="reservation-form" action="" method="POST">
+			<fieldset>
+				<legend><h1>Reservation Form</h1></legend>
+				<dl>
+					<dt><label for="first-name">First Name</label></dt>
+					<dd><input type="text" name="first-name" id="first-name"  required autofocus></dd>
+					
+					<dt><label for="last-name">Last Name:</label></dt>
+					<dd><input type="text" name="last-name" id="last-name"  required ></dd>
+					
+					<dt><label for="datetime">Date ant Time:</label></dt>
+					<dd><input type="datetime" name="datetime" id="datetime"</dd>
+					
+					<dt><label for="number-guests">Number of guests:</label></dt>
+					<dd><input type="number" name="number-guests" id="number-guests" min="1" max="50"></dd>
+					
+					<dt class="group first"><label for="non-smokers">Smokers:</label></dt>
+					<dd class="group first"><input type="radio" name="smokers" id="non-smokers" checked="checked"></dd>
+					
+					<dt class="group last"><label for="smokers">Non-Smokers:</label></dt>
+					<dd class="group last"><input type="radio" name="smokers" id="smokers"></dd>
+					
+					<dt><label for="food">Prefered food: </label></dt>
+					<dd>
+						<select name="food" multiple id="food">
+							<option  value="0" selected>No special preferences</option>
+							<optgroup label="Asian">
+								<option  value="1">Chinese</option>
+								<option  value="2">Japanese</option>
+								<option  value="3">Korean</option>
+							</optgroup>
+							
+							<optgroup label="European">
+								<option  value="4">Italian</option>
+								<option  value="5">French</option>
+								<option  value="6">Mediterranean</option>
+							</optgroup>
+							
+							<optgroup label="Other">
+								<option  value="7">Vegetarian</option>
+								<option  value="8">Seafood</option>
+							</optgroup>
+						</select>
+					</dd>
+					<dt><label for="comments">Please, feel free to share your special preferences ot ideas:</label></dt>
+					<dd><textarea rows="10"  id="comments"></textarea></dd>
+					
+				</dl>
+			</fieldset>
+		</form>
+	</section>
+	<footer style="padding:2%; margin-top:30px; background-color:black;min-height:50px; text-align:right; clear:both;">
+		<div style="color: white;">www.awesomebar.net</div>
+	</footer>
+</body>
+</html>

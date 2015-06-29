@@ -1,0 +1,267 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("../images/background.png") repeat;
+  font-family: calibri;
+  color: white; }
+  body #container {
+    width: 70%;
+    margin: 0 auto; }
+
+#main_head {
+  width: 100%; }
+  #main_head img {
+    width: 10vw;
+    float: left;
+    display: inline-block;
+    margin-left: 100px;
+    overflow: hidden; }
+
+#main_title {
+  margin: 5vh auto; }
+
+#main_list {
+  box-shadow: 0 1px 5px black;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  margin-top: 5vh;
+  text-align: left;
+  border: 1px;
+  border-radius: 10px;
+  background: #2285c0 url("../images/bg-effects.png") repeat-x; }
+  #main_list li {
+    display: inline-block;
+    height: 50px;
+    padding: 0; }
+    #main_list li a {
+      text-decoration: none;
+      border-right: 1px inset #5BA2BF;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      line-height: 50px;
+      padding: 15px; }
+
+a:hover {
+  background: lightskyblue url("../images/bg-effects.png") repeat-x; }
+
+#main_foot {
+  clear: both;
+  margin: 50px auto;
+  text-align: left;
+  background: #2285c0 url("../images/bg-effects.png") repeat-x;
+  height: 10%;
+  border: 1px;
+  border-radius: 10px;
+  position: relative;
+  top: 20px; }
+
+.list {
+  padding: 0 1vw;
+  list-style: none;
+  display: inline-block;
+  zoom: 1;
+  *display: inline; }
+  .list a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold; }
+  .list a:hover {
+    text-decoration: underline;
+    background: none; }
+
+.left {
+  border-right: 1px solid white;
+  border-radius: 5px; }
+
+#gallery {
+  height: 400px;
+  overflow-y: hidden;
+  border: 1px;
+  border-radius: 10px;
+  margin: 50px auto; }
+  #gallery img {
+    margin-top: -100px;
+    width: 100%; }
+
+#acknowledgements, #highscore {
+  width: 40%;
+  float: left;
+  border: 1px solid #095ba1;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3); }
+  #acknowledgements ul, #highscore ul {
+    padding: 0;
+    list-style: none; }
+    #acknowledgements ul li, #highscore ul li {
+      padding: 5px; }
+  #acknowledgements img, #highscore img {
+    height: 50px;
+    border: 1px solid #095ba1; }
+  #acknowledgements p, #highscore p {
+    display: inline-block;
+    margin: 0;
+    width: 60%;
+    margin-left: 20px; }
+  #acknowledgements hr, #highscore hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(9, 91, 161, 0), rgba(9, 91, 161, 0.75), rgba(9, 91, 161, 0));
+    background-image: -moz-linear-gradient(left, rgba(9, 91, 161, 0), rgba(9, 91, 161, 0.75), rgba(9, 91, 161, 0));
+    background-image: -ms-linear-gradient(left, rgba(9, 91, 161, 0), rgba(9, 91, 161, 0.75), rgba(9, 91, 161, 0));
+    background-image: -o-linear-gradient(left, rgba(9, 91, 161, 0), rgba(9, 91, 161, 0.75), rgba(9, 91, 161, 0)); }
+
+#acknowledgements {
+  width: 58.5%; }
+
+#highscore {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-left: 1%; }
+
+.transition {
+  -webkit-transition: all 2s;
+  /* For Safari 3.1 to 6.0 */
+  transition: all 2s; }
+
+.login-container {
+  position: relative;
+  width: 90%;
+  margin: 0 auto; }
+  .login-container dt, .login-container dd, .login-container h1 {
+    margin: 3px 20px; }
+  .login-container h1 {
+    margin-top: -40px;
+    font-size: 3em; }
+
+input {
+  padding: 5px;
+  margin: 5px auto;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 2px solid grey; }
+
+input:hover {
+  border: 2px solid #095ba1;
+  box-sizing: border-box; }
+
+.login-form {
+  width: 40%;
+  margin-top: 100px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid grey;
+  border-radius: 10px;
+  text-align: center; }
+
+.login-image {
+  position: absolute;
+  top: -234px;
+  left: 25%; }
+
+.login-button {
+  display: block;
+  width: 50%;
+  padding: 8px 15px;
+  margin: 5px auto;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: transform 0.3s;
+  /* For Safari 3.1 to 6.0 */
+  transition: transform 0.3s; }
+  .login-button.active {
+    background-color: #095ba1; }
+
+.login-button:hover {
+  -webkit-transform: scale(1.1) rotate(3deg);
+  transform: scale(1.1) rotate(3deg); }
+
+body.register {
+  background-image: url("../images/form-bg-dark.png"), url("../images/background.png");
+  background-repeat: no-repeat,repeat;
+  background-position: 75% 10px, 0 0;
+  background-size: 750px, auto;
+  background-attachment: fixed, scroll; }
+
+.register-container {
+  margin: 30px auto;
+  width: 70%;
+  background: black url("../images/form-bg.png") no-repeat 75% 10px;
+  background-attachment: fixed;
+  background-size: 750px;
+  border-radius: 10px;
+  border: 3px solid black;
+  opacity: 0.8; }
+  .register-container h1 {
+    text-shadow: 2px 2px black;
+    border-radius: 10px;
+    width: 70%; }
+
+.register-form {
+  padding: 20px 30px;
+  width: 100%; }
+  .register-form dt, .register-form dd {
+    display: block;
+    margin: 0 auto;
+    opacity: 1; }
+  .register-form a.login-button {
+    float: right;
+    margin-right: 70px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1.3em;
+    text-align: center;
+    width: 20%; }
+
+#highscore-content {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin-top: 100px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #095ba1;
+  border-radius: 10px;
+  text-align: center; }
+
+#highscore-players {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  border: 1px solid #095ba1;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3); }
+  #highscore-players ul {
+    padding: 0;
+    list-style: none; }
+    #highscore-players ul li {
+      padding: 5px; }
+  #highscore-players img {
+    height: 25px;
+    border: 1px solid #095ba1; }
+  #highscore-players p {
+    display: inline-block;
+    margin: 0;
+    width: 60%;
+    margin-left: 20px; }
+  #highscore-players hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(9, 91, 161, 0), rgba(9, 91, 161, 0.75), rgba(9, 91, 161, 0));
+    background-image: -moz-linear-gradient(left, rgba(9, 91, 161, 0), rgba(9, 91, 161, 0.75), rgba(9, 91, 161, 0));
+    background-image: -ms-linear-gradient(left, rgba(9, 91, 161, 0), rgba(9, 91, 161, 0.75), rgba(9, 91, 161, 0));
+    background-image: -o-linear-gradient(left, rgba(9, 91, 161, 0), rgba(9, 91, 161, 0.75), rgba(9, 91, 161, 0)); }
+
+#highscore-pages {
+  width: 75%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #095ba1;
+  border-radius: 10px; }

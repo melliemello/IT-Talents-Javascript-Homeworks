@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<head>
+	<title>Task4- Arrays </title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="../styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function taskTrigger(){
+			var calendar = new Array(12);
+			var dayOfWeek = 3;//sets the starting day of the week for the current year; 1 is for monday, 7 is for Sunday
+			var month = 1;
+			var weekends = [];
+			var indexMonthWithMostHolidays = 0;
+			var mostCommonHolidayDate = 0;
+			var longestHolidaySequence = 0;
+			var maxHolidaysInMonth = 0;
+			var allDatesFrequency = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+			var monthIndex = 0;
+
+
+			//Creating a calendar array with all the weekends in it;
+			while(month<=12){
+				var startDate = 1;
+				var daysInMonth = 31;
+				//checks for the number of days in each month;
+				if(month <= 7 && month % 2 == 0 || month > 7 && month % 2 != 0){
+					daysInMonth = 30;
+				}
+				//sets the number of days in February
+				if(month == 2){
+					daysInMonth = 28;
+				}
+
+				calendar[month] = [];
+				do{
+					calendar[month][dayOfWeek] = [];
+					for(var i = startDate; i <= daysInMonth; i += 7){//Fills in all the dates for the current day of the week
+						calendar[month][dayOfWeek].push(i); //Day of week - 1 is for monday, 7 for sunday etc.
+						if( i == daysInMonth){//sets the day of the week where the NEXT MONTH starts; if the day of the week, where the current month ends is 7 /Sunday, the next month will start in Monday
+							var nextStartDate = dayOfWeek + 1;
+							if(nextStartDate == 8){
+								nextStartDate = 1;
+							} 
+						}
+					}
+					dayOfWeek++;
+					startDate++;
+					if(dayOfWeek > 7){
+						dayOfWeek = dayOfWeek-7;
+					}
+				}while(calendar[month][dayOfWeek] == undefined);
+
+				month++;
+				dayOfWeek = nextStartDate;
+			}
+
+			//Gets all the weekends from the current calendar- merges all the dates in the Saturday and sunnday Array ot each month
+
+
+			for(var  i = 1; i <=12; i++){
+				weekends[i] = calendar[i][6].concat(calendar[i][7]);
+			}
+
+			//User input for all the additional holidays
+			var holidays = [];
+			for(var i = 1; i <= 12; i++){
+				var counterSequenceHolidays = 0;
+				var notValidated = false;
+				do{
+					holidays[i] = prompt("Въведете почивните дати, разделени със запетая, за месец:" + i).split(",");
+					for(j = 0; j < holidays[i].length; j++){
+						var date = parseInt(holidays[i][j]);
+						if (isNaN(date) || date < 1 || date > 31){ //to correct- some days don't have 31 days
+							notValidated = true;
+							break;
+						}else{
+							notValidated = false;
+						}
+					}
+				}while(notValidated);
+				// Merge additional holidays added by the user and weekends in the calendar
+				holidays[i] = holidays[i].concat(weekends[i]);
+
+
+				holidays[i].sort(function(a, b){return a-b});
+				for(j = 0; j < holidays[i].length; j++){
+					if(j != 0 && holidays[i][j] == holidays[i][j-1]){
+						holidays[i].splice(j,1);
+					}
+				}
+				//Checks if the number of holidays is greater than the previous months
+				if(holidays[i].length > maxHolidaysInMonth){
+					maxHolidaysInMonth = holidays[i].length;
+					indexMonthWithMostHolidays = i;
+				}
+				//checks for the longest sequence of holidays and adds the dates in a separate array
+				for(var j = 0; j < holidays[i].length; j++){
+					counterSequenceHolidays++;
+					var currentDate = parseInt(holidays[i][j]);
+						var previousDate = parseInt(holidays[i][j-1]);
+					if(j != 0 && currentDate != previousDate + 1) {
+						counterSequenceHolidays = 0;
+					}
+					if(counterSequenceHolidays > longestHolidaySequence){
+						longestHolidaySequence = counterSequenceHolidays;
+						monthIndex = i;
+					}
+					allDatesFrequency[currentDate] += 1;
+				}
+			}
+
+				var mostCommonHolidayDate = Math.max.apply(Math, allDatesFrequency)
+				mostCommonHolidayDate = allDatesFrequency.indexOf(mostCommonHolidayDate);
+
+
+			var result = "Най продължителна поредица от почивни дни: " + longestHolidaySequence + " | " + holidays[monthIndex]  +"</br>" + 
+						"Индекс на месеца с най-много почивни дни: " + indexMonthWithMostHolidays +" | " + holidays[indexMonthWithMostHolidays]+ "</br>" + 
+						"Най-често срещана почивна дата: " + mostCommonHolidayDate;
+
+
+			document.getElementById("result").innerHTML = result;
+
+
+
+
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Задача 4</h1>
+	<p>Да се направи програма, която да въвежда датите на почивните дни
+за всеки месец. Да извежда Датите на които се почива в месеца с най-много почивни дни.
+●
+Най -често срещаната дата на която се почива
+●
+Най -дългата поредица от почивни дни.
+</p>
+</header>
+<form  class="wrapper clearfix" >
+	<input type= "button" class="button" onclick = "taskTrigger();" value ="Check!">
+</form>
+<div class="wrapper" id="result">
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+	<title>Decisions, decisions </title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="./styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function taskTrigger(){
+			var time = parseInt(document.getElementById("value1").value);
+			var money = parseFloat(document.getElementById("value2").value);
+			var ill = document.getElementById("health-flag").checked;
+
+			if(isNaN(time*money)){
+				alert("Въвели сте некоректни стойности");
+				return false;
+			};
+
+			var result = time < 22 ? "Не ми се спи" : "Спи ми се";
+
+			if(ill){
+				result += money > 10.00 ? ", ще си купя лекарства, " : ", ще си направя чай, " ;
+			}else{
+				result += money > 10.00 ? ", отивам на кафе, " : ", ще се разходя в парка, " ;
+			}
+
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Задача 7: Програма, която взима решения на база на 3 променливи</h1>
+	<p>Въведете 3 променливи от клавиатурата – час (целочислен тип), сума пари (число с плаваща запетая), дали съм здрав – булев тип.
+Съставете програма, която взема решения на базата на тези данни по следния начин:</p>
+<ul>
+	<li>ако съм болен няма да излизам</li>
+	<li>ако имам пари ще си купя лекарства</li>
+	<li>ако нямам – ще стоя вкъщи и ще пия чай</li>
+	<li>ако съм здрав</li>
+	<li>ако имам по-малко от 10 лв ще отида на кафе и т.н</li>
+</ul>
+</header>
+<form  class="wrapper" >
+	<dl class="basic-entry clearfix">
+		<dt><label for "value1">Час:<label></dt>
+		<dd><input type ="text" name="value1" id= "value1" placeholder = "00" ></dd>
+		<dt><label for "value2">Пари:</label></dt>
+		<dd><input type ="text" name="value2" id= "value2" ></dd>
+		<dt><label for "health-flag">Болен съм: </label></dt>
+		<dd><input type = "checkbox" name ="health-flag" id= "health-flag" ></dd>
+	</dl>
+
+	<input type= "button" class="button" onclick = "taskTrigger();" value ="Check!">
+</form>
+<div class="wrapper" id="result">
+	
+</div>
+</body>
+</html>

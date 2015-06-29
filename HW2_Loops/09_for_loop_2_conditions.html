@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+	<title>Задача 9</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="../styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function validateAndAssignInput(elementID){
+			var input = parseInt(document.getElementById(elementID).value);
+			return input;
+		}
+		
+		function taskTrigger(){
+			var val1 = validateAndAssignInput("value1");
+			var val2 = validateAndAssignInput("value2");
+			var limitUp = Math.max(val1, val2);
+			var limitDown = Math.min(val1,val2);
+			var sum = 0;
+			var result= "";
+			
+			if(isNaN(val1*val2)){
+				var result = "You have entered invalid number. Please enter a valid number";
+				alert(result);
+				return;
+			}
+			
+			for(i = limitDown; i <= limitUp && sum < 200;  i++){
+				i % 3 == 0 ? result += "skip " + i + ", " : result += i*i + ", ";
+				sum += i;
+			}
+			
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Задача 9</h1>
+	<p>Да се прочетат 2 числа от клавиатурата А и В.
+		Да се изведат всички числа от А до В на степен 2(разделени с запетая).
+		Ако някое число е кратно на 3, да се изведе съобщение че числото се пропуска „skip 3“.
+		Ако сумата от всички изведени числа (без пропуснатите) стане по-голяма от 200, да се прекрати извеждането.
+	</p>
+</header>
+<form  class="wrapper" >
+	<dl class="basic-entry clearfix">
+		<dt><label for "value1">Стойност 1:</label></dt>
+		<dd><input type ="text" name="value1" id= "value1" ></dd>
+		<dt><label for "value2">Стойност 2:</label></dt>
+		<dd><input type ="text" name="value2" id= "value2" ></dd>
+	</dl>
+
+	<input type= "button" class="button" onclick = " taskTrigger();" value ="Check!">
+</form>
+<div class="wrapper" id="result">
+	
+</div>
+</body>
+</html>

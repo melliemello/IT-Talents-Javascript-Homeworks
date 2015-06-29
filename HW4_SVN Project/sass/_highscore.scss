@@ -1,0 +1,64 @@
+#highscore-content {
+	position: relative;
+	width:100%;
+	height: 500px;
+	margin-top:100px;
+	background: rgba(0,0,0,0.3);
+	border: 1px solid #095ba1;
+	border-radius:10px;
+	text-align:center;
+    
+       
+}
+#highscore-players {
+	 margin-left:auto;
+	 margin-right:auto;
+	 width:80%;
+    
+      border:1px solid #095ba1;
+      border-radius:10px;
+      
+      background-color:rgba(0,0,0,0.3);
+      ul {
+         padding:0;
+        list-style:none;
+        li {
+            //border-bottom:1px solid white;
+
+            padding:5px;
+        }
+      }
+      img {
+         height:25px;
+         border:1px solid #095ba1;
+      }
+      p {
+         display:inline-block;
+         margin:0;
+         width:60%;
+         margin-left:20px;
+      }
+      hr {
+          border: 0;
+          height: 1px;
+          background-image: -webkit-linear-gradient(left, rgba(9,91,161,0), rgba(9,91,161,0.75), rgba(9,91,161,0)); 
+          background-image:    -moz-linear-gradient(left, rgba(9,91,161,0), rgba(9,91,161,0.75), rgba(9,91,161,0)); 
+          background-image:     -ms-linear-gradient(left, rgba(9,91,161,0), rgba(9,91,161,0.75), rgba(9,91,161,0)); 
+          background-image:      -o-linear-gradient(left, rgba(9,91,161,0), rgba(9,91,161,0.75), rgba(9,91,161,0)); 
+      }
+}
+
+
+    
+#highscore-pages {
+	
+	width:75%;
+	height: 50px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 30px;
+	background: rgba(0,0,0,0.3);
+	border: 1px solid #095ba1;
+	border-radius:10px;
+	
+}

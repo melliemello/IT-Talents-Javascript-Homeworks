@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>Task 2</title>
+			<script>
+				var days = [];
+				var length = 5;
+				var maxSequenceColderDays = [] ;
+				var sequenceColderDays = [];
+				var sequenceBelowAverage = [];
+				var maxBelowAverage = [];
+				var sum = 0;
+				var averageTemperature;
+
+
+				for(var i = 0; i < length; i++){
+					do {
+						days[i] = parseInt(prompt("Enter the temeprature of day:" + i));
+					} while (isNaN(days[i]) );
+
+					sum += days[i];
+					sequenceColderDays.push(i);
+
+					if (days[i] >=days[i-1] && i != 0) {
+						sequenceColderDays.length = 0;
+						sequenceColderDays[0] = i;
+					}
+
+					if (sequenceColderDays.length > maxSequenceColderDays.length) {
+						var startIndex = sequenceColderDays[0];
+						maxSequenceColderDays = days.slice(startIndex)
+					}
+				}
+
+				averageTemperature = sum / length;
+
+				for (var i = 0; i <= length; i++) {
+					sequenceBelowAverage.push(i);
+					if (days[i] > averageTemperature) {
+						sequenceBelowAverage.length = 0;
+					}
+
+					if (sequenceBelowAverage.length > maxBelowAverage.length) {
+						var startIndex = sequenceBelowAverage[0];
+						maxBelowAverage = days.slice(startIndex, i+1);
+					}
+				}
+
+
+				var result = "average temperature:" + averageTemperature + "\n" + 
+				"Longest sequence of cold days /temperature is below the average: " + maxBelowAverage + "\n" +
+				"Longest sequence of days, colder the the previous one: " + maxSequenceColderDays;
+				console.log(result);
+
+			</script>
+		</head>
+		<body>
+			<p>Да се създаде програма, която въвежда от клавиатурата 
+средните температури за всеки един ден от месец с n дни. Да 
+се изведе:
+● средната температура за месеца 
+● най-дългата поредица от студени дни (когато температурата е била 
+под средната)
+● най дългия период на застудяване (когато с всеки изминал ден 
+температурата е намалявала)</p>
+
+		</body>
+	</html>

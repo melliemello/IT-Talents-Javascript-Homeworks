@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+	<title>Check if a number is in a given range</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="./styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function validateAndAssignInput(elementID){
+			var input = parseFloat(document.getElementById(elementID).value);
+			return input;
+		}
+		
+		function taskTrigger(){
+			var val1 = validateAndAssignInput("value1");
+			var val2 = validateAndAssignInput("value2");
+			var val3 = validateAndAssignInput("value3");
+
+			if(isNaN(val1*val2*val3)){
+				var result = "You have entered invalid number. Please enter a valid number";
+				alert(result);
+				return;
+			}
+			
+			if(val3 > Math.min(val1, val2) && val3 < Math.max(val1,val2)){
+				var result =   "Yes,the value " + val3 +" is between " + val1 + " and " + val2  ; 
+			}else{
+				var result = "Nope, the number " + val3 +" is not in the range between " + val1 + " and " + val2  ; 
+			}
+			
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>TASK1: Check if a number is in a given range</h1>
+	<p>Check if Value 3 is between Value1 and Value2</p>
+</header>
+<form  class="wrapper" >
+	<dl class="basic-entry clearfix">
+		<dt><label for "value1">Value 1:</label></dt>
+		<dd><input type ="text" name="value1" id= "value1" ></dd>
+		<dt><label for "value2">Value 2:</label></dt>
+		<dd><input type ="text" name="value2" id= "value2" ></dd>
+		<dt><label for "value3">Value to check:</label></dt>
+		<dd><input type ="text" name="value3" id= "value3" ></dd>		
+	</dl>
+	<input type= "button" class="button" onclick = " taskTrigger();" value ="Check!">
+</form>
+<div class="wrapper" id="result">
+	
+</div>
+</body>
+</html>

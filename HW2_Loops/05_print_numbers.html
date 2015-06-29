@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+	<title>Task1 - Task4 </title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="../styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function validateAndAssignInput(elementID){
+			var input = parseInt(document.getElementById(elementID).value);
+			return input;
+		}
+
+		console.log("array is" + arr);
+		
+		function taskTrigger(){
+			var val1 = validateAndAssignInput("value1");
+			var val2 = validateAndAssignInput("value2");
+			var result= "";
+
+			if(isNaN(val1*val2)){
+				alert("Въвели сте некоректни стойности");
+				return false;
+			};
+
+			for(i = Math.min(val1, val2); i<=Math.max(val1, val2); i++){
+				result+= String(i) + " ";
+			}
+
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Задача 5</h1>
+	<p>Да се въведат от потребителя 2 числа. И да се изведат на екрана всички числа от по-малкото до по-голямото.</p>
+</header>
+<form  class="wrapper" >
+	<dl class="basic-entry clearfix">
+		<dt><label for "value1">Стойност 1:<label></dt>
+		<dd><input type ="text" name="value1" id= "value1"></dd>
+		<dt><label for "value2">Стойност2:</label></dt>
+		<dd><input type ="text" name="value2" id= "value2" ></dd>
+	</dl>
+
+	<input type= "button" class="button" onclick = "taskTrigger();" value ="Check!">
+</form>
+<div class="wrapper" id="result">
+	
+</div>
+</body>
+</html>

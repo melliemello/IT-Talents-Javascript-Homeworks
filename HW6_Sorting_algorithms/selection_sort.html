@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<script>
+		function swap(array, index1, index2) {
+			array[index1] = array[index2] + (array[index2] = array[index1],0);
+		}
+
+		function selectionSort(array) {
+			for (var i = 0; i < array.length; i++) {
+				var minValue = array[i];
+				var minIndex = i;
+				for (var j = i+1; j < array.length; j++) {
+					if (array[j] < minValue) {
+						minValue = array[j];
+						minIndex = j;
+					}
+				}
+				if (minValue != array[i]) {
+					swap(array, i,minIndex);
+				}
+			}
+			return array;
+		}
+
+		console.log(selectionSort([5,3,6,1,-4]));
+		</script>
+	</head>
+</html>

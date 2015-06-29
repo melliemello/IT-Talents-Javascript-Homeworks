@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+	<title>Task1 - Task4 </title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="../styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function taskTrigger(){
+			//TASK1
+			var number = 1;
+			var result1 ="";
+			while(number <= 100){
+				result1 += String(number) + " ";
+				number++;
+			}
+
+			//TASK2
+			var result2 = "";
+			for( i = -20; i<=50; i++){
+				result2 += String(i) + " ";
+			}
+
+			//TASK3
+			var result3="";
+			for(i = -9; i<=10; i+=2 ){
+				result3 += String(i) + " ";
+			}
+
+			//TASK4
+			var result4="";
+			for(i = 10; i>0; i-- ){
+				result4 += String(i) + " ";
+			}
+
+			document.getElementById("result1").innerHTML = result1;
+			document.getElementById("result2").innerHTML = result2;
+			document.getElementById("result3").innerHTML = result3;
+			document.getElementById("result4").innerHTML = result4;
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Задача 1 до Задача4</h1>
+	<p>Задача 1: Да се изведат на екрана числата от 1 до 100..
+		Задача 2: Да се изведат на екрана числат от -20 до 50.
+		Задача 3: Да се изведат на екрана всички нечетни числа от -10 до 10
+		Задача 4: Да се изведат на екрана числата от 10 до 1 в обратен ред.</p>
+</header>
+<form  class="wrapper clearfix" >
+	<input type= "button" class="button" onclick = "taskTrigger();" value ="Check!">
+</form>
+
+<div class="wrapper" id="result1"></div>
+<div class="wrapper" id="result2"></div>
+<div class="wrapper" id="result3"></div>
+<div class="wrapper" id="result4"></div>
+</body>
+</html>

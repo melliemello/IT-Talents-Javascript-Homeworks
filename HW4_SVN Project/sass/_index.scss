@@ -1,0 +1,68 @@
+#gallery {
+
+      height:400px;
+      overflow-y:hidden;
+      border:1px;
+      border-radius:10px;
+      margin:50px auto;
+      img { 
+      margin-top:-100px;
+      width:100%;
+      }  
+   }
+   #acknowledgements, #highscore {
+      width:40%;
+      float:left;
+      border:1px solid #095ba1;
+      border-top-left-radius:10px;
+      border-bottom-left-radius:10px;
+      background-color:rgba(0,0,0,0.3);
+      ul {
+         padding:0;
+        list-style:none;
+        li {
+            //border-bottom:1px solid white;
+
+            padding:5px;
+        }
+      }
+      img {
+         height:50px;
+         border:1px solid #095ba1;
+      }
+      p {
+         display:inline-block;
+         margin:0;
+         width:60%;
+         margin-left:20px;
+      }
+      hr {
+          border: 0;
+          height: 1px;
+          background-image: -webkit-linear-gradient(left, rgba(9,91,161,0), rgba(9,91,161,0.75), rgba(9,91,161,0)); 
+          background-image:    -moz-linear-gradient(left, rgba(9,91,161,0), rgba(9,91,161,0.75), rgba(9,91,161,0)); 
+          background-image:     -ms-linear-gradient(left, rgba(9,91,161,0), rgba(9,91,161,0.75), rgba(9,91,161,0)); 
+          background-image:      -o-linear-gradient(left, rgba(9,91,161,0), rgba(9,91,161,0.75), rgba(9,91,161,0)); 
+      }
+}
+      #acknowledgements {
+         width:58.5%;
+      }
+
+      #highscore {
+         border-bottom-left-radius:0px;
+         border-top-left-radius:0px;
+         border-top-right-radius:10px;
+         border-bottom-right-radius:10px;
+         margin-left:1%;
+      }
+
+
+
+
+
+
+
+
+
+      

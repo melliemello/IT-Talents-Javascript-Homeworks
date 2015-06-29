@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script>
+		function binarySearch(number, array, start, end) {
+			if (number < array[start] || number > array[end]) {
+				return "Item Not Found";
+			}
+			var middle = Math.floor((end + start) / 2);
+			if (array[middle] == number) {
+				return middle;
+			}
+			if(number > array[middle]) {
+				return binarySearch(number, array, middle + 1, end);
+			}else{
+				return binarySearch(number, array, start, middle - 1);
+			}
+		}
+
+		var myArray = ["a","b", "c","d"];
+		console.log(binarySearch("c",myArray, 0, myArray.length ))
+		</script>
+	</head>
+</html>

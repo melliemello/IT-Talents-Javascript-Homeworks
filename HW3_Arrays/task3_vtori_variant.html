@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+	<title>Task3 </title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link href="../styles/style.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+		<script src="dist/html5shiv.js"></script>
+	<![endif]-->
+	<script>
+		function taskTrigger(){
+			var daysInMonth =parseInt(document.getElementById("value1").value);
+			var monthTemepratures = [];
+			var temperatureSum = 0;
+			var longestSequenceColderDays = 0;
+			var longestSequenceBelowAverage = 0;
+			var counter = 0;
+
+			if(isNaN(daysInMonth)){
+				alert("Въведете коректна стойсйност от 1 до 31");
+				return false;
+			}
+
+			for(var i = 0;i < daysInMonth; i++){
+				do{
+					var dayTemperature = parseInt(prompt("Въведете температура за ден: " + i));
+				}while(isNaN(dayTemperature) || dayTemperature < -30 || dayTemperature > 50);
+				monthTemepratures[i] = dayTemperature;
+				counter ++;
+				temperatureSum += dayTemperature;
+				if(monthTemepratures[i] >= monthTemepratures[i-1] || i == 0){
+					counter = 0;
+				}
+				if(counter > longestSequenceColderDays){
+					longestSequenceColderDays = counter;
+				}
+			}
+			//Checks for the temperatures below the month average temperature;
+			counter = 0;
+			var averageTemperature = temperatureSum / daysInMonth;
+			for(var i = 0; i < daysInMonth; i++){
+				monthTemepratures[i] >= averageTemperature ? counter = 0 : counter++;
+				if(counter > longestSequenceBelowAverage){
+					longestSequenceBelowAverage = counter;
+				}
+			}
+
+			var result = "Longest sequence of cold days /temperature is below the average: " + longestSequenceBelowAverage + "</br>" +
+						"Longest sequence of days, coolder the the previous one: " + longestSequenceColderDays;
+
+			document.getElementById("result").innerHTML = result;
+
+
+
+
+		}
+	</script>
+</head>
+
+<body>
+<header id="page-header">
+	<h1>Задача 3</h1>
+	<p>Да се създаде програма, която въвежда от клавиатурата
+средните температури за всеки един ден от месец с n дни. Да се изведе:средната температура за месеца
+●
+най-дългата поредица от студени дни (когато температурата е била
+под средната)
+●
+най дългия период на застудяване (когато с всеки изминал ден
+температурата е намалявала) 
+</p>
+</header>
+<form  class="wrapper clearfix" >
+	<dl class="basic-entry clearfix">
+		<dt><label for "value1">Брой дни в месеца:<label></dt>
+		<dd><input type ="text" name="value1" id= "value1"></dd>
+	</dl>
+
+	<input type= "button" class="button" onclick = "taskTrigger();" value ="Check!">
+</form>
+<div class="wrapper" id="result">
+	
+</div>
+</body>
+</html>

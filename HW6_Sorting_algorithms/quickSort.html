@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<script>
+		function partition(array, start,end) {
+			var pivot = array[start];
+			for (var i = start + 1; i < end; i++) {
+				if (array[i] < pivot) {
+					array.unshift(array.splice(i,1)[0]);
+				}
+			}
+			return array.indexOf(pivot);
+		}
+
+		function quickSort(array,start,end) {
+			if (start >= end) {
+				return;
+			}
+			var middle = partition(array,start,end);
+			quickSort(left,start,middle);
+			quickSort (right,middle,end);
+			return array;
+		}
+
+		console.log(quickSort([5,3,23,44,14], 0, 5));
+		</script>
+	</head>
+</html>
